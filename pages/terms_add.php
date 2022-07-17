@@ -13,8 +13,8 @@ date_default_timezone_set('Asia/Manila');
 	$day=date('d');	
 	$month=date('m');	
 
-	$span = $_POST['span'];
-	$terms = $_POST['terms'];
+	$span = 0;
+	$terms = 0;
 	$down = $_POST['down'];
 	$interest = $_POST['interest'];
 	$total = $_POST['grandtotal'];
@@ -41,48 +41,48 @@ date_default_timezone_set('Asia/Manila');
 					$or=$or+1;
 				}
 	
-	if ($terms=='monthly')
-	{
-		$due=($balance)/$span;	
-		for($i=1;$i<=$span;$i++)	
-		{
-			$due_date1 = date("Y-m-d",strtotime("+$i months"));
+	// if ($terms=='monthly')
+	// {
+	// 	$due=($balance)/$span;	
+	// 	for($i=1;$i<=$span;$i++)	
+	// 	{
+	// 		$due_date1 = date("Y-m-d",strtotime("+$i months"));
 
-				mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
-			VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
+	// 			mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
+	// 		VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
 		
-		}
-	}
-	else if($terms=='daily')
-	{
-		$due=($balance)/$span/30;	
-		$spanday=$span*30;
-		for($i=0;$i<$spanday;$i++)	
-		{
-			$due_date1 = date("Y-m-d",strtotime($date. " + $i days")); 
+	// 	}
+	// }
+	// else if($terms=='daily')
+	// {
+	// 	$due=($balance)/$span/30;	
+	// 	$spanday=$span*30;
+	// 	for($i=0;$i<$spanday;$i++)	
+	// 	{
+	// 		$due_date1 = date("Y-m-d",strtotime($date. " + $i days")); 
 				
-				mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
-			VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
+	// 			mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
+	// 		VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
 
-		}
-	}
-	else{
-		$due=($balance)/$span/4;	
-		$spanweek=$span*4;
+	// 	}
+	// }
+	// else{
+	// 	$due=($balance)/$span/4;	
+	// 	$spanweek=$span*4;
 		
-		$day=date("Y-m-d");
+	// 	$day=date("Y-m-d");
 		
-		for($i=1;$i<=$spanweek;$i++)	
-		{
-		$due_date1 = date("Y-m-d",strtotime($date. " + $i weeks"));
+	// 	for($i=1;$i<=$spanweek;$i++)	
+	// 	{
+	// 	$due_date1 = date("Y-m-d",strtotime($date. " + $i weeks"));
 
-				mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
-			VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
-		}	
-	}	
+	// 			mysqli_query($con,"INSERT INTO payment(cust_id,payment_for,due,interest,payment,user_id,branch_id,remaining,sales_id) 
+	// 		VALUES('$cid','$due_date1','$due','0','0','$id','$branch','$due','$sid')")or die(mysqli_error($con));
+	// 	}	
+	// }	
 		
-		mysqli_query($con,"INSERT INTO term(payable_for,term,due,payment_start,down,due_date,interest,sales_id) 
-		VALUES('$span','$terms','$due','$date','$down','$due_date','$interest','$sid')")or die(mysqli_error($con));
+		mysqli_query($con,"INSERT INTO term(payable_for,term,due,payment_start,down,due_date,interest,sales_id,status) 
+		VALUES('$span','$terms','$due','$date','$down','$due_date','$interest','$sid','paid')")or die(mysqli_error($con));
 		
 	mysqli_query($con,"UPDATE customer SET balance='$balance' where cust_id='$cid'") or die(mysqli_error($con)); 
 	

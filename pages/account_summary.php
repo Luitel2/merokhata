@@ -140,7 +140,7 @@ endif;
    // $cid=$_REQUEST['cid'];
     $query1=mysqli_query($con,"select * from sales natural join sales_details natural join product natural join term where cust_id='$cid' order by date_added desc")or die(mysqli_error($con));
     while($row1=mysqli_fetch_array($query1)){
-    
+    // var_dump($row1);
 ?>
                       <tr>
                         <td><?php echo $row1['term_id'];?></td>

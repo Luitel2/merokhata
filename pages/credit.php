@@ -141,11 +141,11 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
               </div><!-- /.form group -->
 
 						  <div class="form-group">
-							<label for="date">Downpayment</label>
-								<input type="text" class="form-control" id="down" name="down" tabindex="6" placeholder="Downpayment" value="<?php $down=($grand+$interest)*.2;echo $down;?>" required>
+							<label for="date">Payment</label>
+								<input type="text" class="form-control" id="down" name="down" tabindex="6" placeholder="Downpayment" value="<?php echo $grand+$interest;?>" required>
 						  </div><!-- /.form group -->
 						 
-             <div class="form-group">
+             <!-- <div class="form-group">
               <label for="date">Terms</label>
                 <select class="form-control select2" name="terms" tabindex="1" required>
                     
@@ -154,8 +154,9 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
                     <option>daily</option>
                 </select>
             
-              </div><!-- /.form group -->
-              <div class="form-group">
+              </div> -->
+              <!-- /.form group -->
+              <!-- <div class="form-group">
               <label for="date">Payable for</label>
                 <select class="form-control select2" name="span" tabindex="1" required>
                    
@@ -167,7 +168,7 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
                     <option value="6">6 months</option>
                 </select>
             
-              </div>
+              </div> -->
               
               
 					</div>
