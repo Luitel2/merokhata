@@ -127,7 +127,7 @@ $queryb=mysqli_query($con,"select balance from customer where cust_id='$cid'")or
 			$grand=0;
 		while($row=mysqli_fetch_array($query)){
 				$id=$row['temp_trans_id'];
-				$total= $row['price'];
+				$total= $row['price'] * $row['qty'];
 				$grand=$grand+$total;
 		
 ?>
@@ -344,7 +344,7 @@ $queryb=mysqli_query($con,"select balance from customer where cust_id='$cid'")or
           "paging": true,
           "lengthChange": false,
           "searching": false,
-          "ordering": true,x`
+          "ordering": true,
           "info": true,
           "autoWidth": false
         });

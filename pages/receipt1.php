@@ -92,7 +92,8 @@ $branch=$_SESSION['branch'];
                         <th><span style="font-size: 16px;color: red">No. <?php echo $row1['or_no'];?></span></th>
                       </tr>
                       <tr>
-                        <th colspan="3"><h6>Contact #: <?php echo $rowb['branch_contact'];?></h6></th>
+                        <th colspan="3"><h6>Contact
+                          : <?php echo $rowb['branch_contact'];?></h6></th>
                         <th></th>
                       </tr>
                       
@@ -106,7 +107,7 @@ $branch=$_SESSION['branch'];
                         <th><?php echo $row['term'];?> </th>
                       </tr>
                       <tr>
-                        <th>Contact #</th>
+                        <th>Contact</th>
                         <th><?php echo $contact;?></th>
                         <th>Payable for</th>
                         <th><?php echo $row['payable_for'];?> month/s</th>
@@ -165,20 +166,6 @@ $branch=$_SESSION['branch'];
                         <td></td>
                         <td class="text-right">TOTAL AMOUNT DUE</td>
                         <td style="text-align:right"><?php echo number_format($grand,2);?></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="text-right">Interest</td>
-                        <td style="text-align:right"><?php echo number_format($interest,2);?></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="text-right">Downpayment</td>
-                        <td style="text-align:right"><?php echo number_format($row['down'],2);?></td>
                       </tr>
                      
                       <tr>

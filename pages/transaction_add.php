@@ -20,7 +20,7 @@ include('../dist/includes/dbcon.php');
 		$total=$price*$qty;
 		
 		if ($count>0){
-			mysqli_query($con,"update temp_trans set qty=qty+'$qty',price=price+'$total' where prod_id='$name' and branch_id='$branch'")or die(mysqli_error());
+			mysqli_query($con,"update temp_trans set qty=qty+'$qty',price=price where prod_id='$name' and branch_id='$branch'")or die(mysqli_error());
 	
 		}
 		else{

@@ -185,14 +185,14 @@ endif;
                     <tfoot>
                       <tr>
                       	<th>Picture</th>
-                        <th>Serial #</th>
+                        <th>Product Code</th>
                         <th>Product Name</th>
                         <th>Description</th>
-						<th>Category</th>
+						<th>Supplier</th>
                         <th>Qty</th>
 						<th>Price</th>
 						<th>Category</th>
-						<th>Reorder</th>
+						<!-- <th>Reorder</th> -->
                         <th>Action</th>
                       </tr>					  
                     </tfoot>

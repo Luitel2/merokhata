@@ -153,8 +153,8 @@ endif;
                         <td><?php echo date("M d, Y",strtotime($row1['date_added']));?></td>
                        <td><?php echo date("M d, Y",strtotime($row1['due_date']));?></td>
                         <td><?php 
-                        if ($row1['status']=='paid') 
-                        echo "<span class='badge bg-green'>".$row1['status']."</span>";
+                        if ($row['balance'] == 0) 
+                        echo "<span class='badge bg-green'>paid</span>";
                         else echo "<span class='badge bg-red'>unpaid</span>";
                         ?>
 
@@ -175,7 +175,7 @@ endif;
                     <table id="" class="table table-bordered table-striped">
                   <thead>
                       <tr>
-                        <th>Transaction #</th>                      
+                        <th>Transaction</th>                      
                         <th>Product</th>
                         <th>Product Code</th>
                         <th>Price</th>

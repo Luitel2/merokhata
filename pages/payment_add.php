@@ -22,7 +22,7 @@ date_default_timezone_set('Asia/Manila');
     			$pid=$row3['payment_id'];
     			$payment=$row3['payment'];
     			$due=$row3['due'];
-    			$total=$row3['due']+$row3['interest'];
+    			$total=$row3['due'];
     			$bal=$row3['remaining'];
     			$sid=$row3['sales_id'];
     			$payment_date=date("Y-m-d",strtotime($row3['payment_for']));

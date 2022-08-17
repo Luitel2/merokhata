@@ -59,14 +59,6 @@ endif;
                 <div class="box-body">
                   <!-- Date range -->
                   <form method="post" action="customer_add.php" enctype="multipart/form-data" class="form-horizontal">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="date" class="col-sm-3 control-label">Last Name</label>
-                        <div class="input-group col-sm-8">
-                          <input type="text" class="form-control pull-right" id="date" name="last" placeholder="Customer Last Name" required>
-                        </div><!-- /.input group -->
-                      </div><!-- /.form group -->
-                    </div>
                     
                     <div class="col-md-6">  
                       <div class="form-group">
@@ -76,7 +68,15 @@ endif;
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
-
+                    
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Last Name</label>
+                        <div class="input-group col-sm-8">
+                          <input type="text" class="form-control pull-right" id="date" name="last" placeholder="Customer Last Name" required>
+                        </div><!-- /.input group -->
+                      </div><!-- /.form group -->
+                    </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Contact </label>
@@ -130,7 +130,7 @@ endif;
                         $query2=mysqli_query($con,"select * from customer where branch_id='$branch' order by cust_last, cust_first")or die(mysqli_error());
                           while($row2=mysqli_fetch_array($query2)){
                       ?>
-            <option value="<?php echo $row2['cust_id'];?>"><?php echo $row2['cust_last'].", ".$row2['cust_first'];?></option>
+            <option value="<?php echo $row2['cust_id'];?>"><?php echo $row2['cust_first'].", ".$row2['cust_last'];?></option>
           <?php }?>
                     </select>
                     </div><!-- /.input group -->

@@ -196,7 +196,7 @@ endif;
                         				  <label class="control-label col-lg-3" for="tlast">Amount</label>
                         				  <div class="col-lg-8">
                                     <input type="hidden" class="form-control" id="tlast" name="balance" value="<?php echo $row['balance'];?>">  
-                                     <input type="text" class="form-control" id="tlast" name="amount" placeholder="Amount" required>  
+                                     <input type="number" class="form-control" id="tlast" name="amount" placeholder="Amount" required>  
 				                           </div>
                              </div> 
                              <!-- <div class="form-group">
@@ -205,7 +205,6 @@ endif;
                                      <input type="text" class="form-control" id="tlast" name="rebate" placeholder="Rebate per month">  
                                    </div> -->
                              </div> 
-                            
                       </div>       
                       <!--end of modal body-->
                       <div class="modal-footer">

@@ -69,7 +69,7 @@ javascript:window.history.forward(1);
                   $branch=$_SESSION['branch'];
                   $cid=$_REQUEST['cid'];
 								  include('../dist/includes/dbcon.php');
-									 $query2=mysqli_query($con,"select * from product where branch_id='$branch' order by prod_name")or die(mysqli_error());
+									 $query2=mysqli_query($con,"select * from product where branch_id='$branch' and prod_qty > 0 order by prod_name")or die(mysqli_error());
 									    while($row=mysqli_fetch_array($query2)){
 								?>
 										<option value="<?php echo $row['prod_id'];?>"><?php echo $row['prod_name']." Available(".$row['prod_qty'].")";?></option>
@@ -82,7 +82,7 @@ javascript:window.history.forward(1);
 						<div class="form-group">
 							<label for="date">Quantity</label>
 							<div class="input-group">
-							  <input type="number" class="form-control pull-right" id="date" name="qty" placeholder="Quantity" tabindex="2" value="1"  required>
+							  <input type="number" class="form-control pull-right"  id="date" name="qty" min="1" placeholder="Quantity" tabindex="2" value="1"  required>
 							</div><!-- /.input group -->
 						</div><!-- /.form group -->
 					 </div>
@@ -106,9 +106,8 @@ $queryb=mysqli_query($con,"select balance from customer where cust_id='$cid'")or
                   <table class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Qty</th>
-						       
                         <th>Product Name</th>
+                        <th>Qty</th>
 						            <th>Price</th>
 						            <th>Total</th>
                         <th>Action</th>
@@ -119,15 +118,17 @@ $queryb=mysqli_query($con,"select balance from customer where cust_id='$cid'")or
 		
 		$query=mysqli_query($con,"select * from temp_trans natural join product where branch_id='$branch'")or die(mysqli_error());
 			$grand=0;
+      //var_dump(mysqli_fetch_array($query));
 		while($row=mysqli_fetch_array($query)){
 				$id=$row['temp_trans_id'];
-				$total= $row['price'];
+        $total=$row['qty']*$row['price'];
+				// $total= $row['price'];
 				$grand=$grand+$total;
 		
 ?>
                       <tr >
-						<td><?php echo $row['qty'];?></td>
                         <td class="record"><?php echo $row['prod_name'];?></td>
+                        <td><?php echo $row['qty'];?></td>
 						<td><?php echo number_format($row['price'],2);?></td>
 						<td><?php echo number_format($total,2);?></td>
                         <td>

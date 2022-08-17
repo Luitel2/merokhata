@@ -58,7 +58,7 @@
                       <tr>
                         <th>Supplier Name</th>
 						            <th>Address</th>
-                        <th>Contact #</th>
+                        <th>Contact</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -131,7 +131,7 @@
                       <tr>
                         <th>Supplier Name</th>
                         <th>Address</th>
-                        <th>Contact #</th>
+                        <th>Contact</th>
                         <th>Action</th>
                       </tr>					  
                     </tfoot>
@@ -164,9 +164,9 @@
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
                <div class="form-group">
-                    <label for="date">Supplier Contact #</label>
+                    <label for="date">Supplier Contact</label>
                     <div class="input-group col-md-12">
-                      <input type="text" class="form-control pull-right" id="date" name="contact" placeholder="Contact # of Supplier" required>
+                      <input type="text" class="form-control pull-right" id="date" name="contact" placeholder="Contact of Supplier" required>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->    
 				

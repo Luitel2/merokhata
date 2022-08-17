@@ -54,8 +54,8 @@ javascript:window.history.forward(1);
                   <table class="table table-bordered table-striped">
                     <thead>
                       <tr>
+                        <th>Product Name</th>
                         <th>Qty</th>
-						           <th>Product Name</th>
             						<th>Price</th>
             						<th class="pull-right">Total</th>
                        
@@ -74,8 +74,8 @@ javascript:window.history.forward(1);
 		
 ?>
           <tr>
+            <td class="record"><?php echo $row['prod_name'];?></td>
 						<td><?php echo $row['qty'];?></td>
-						<td class="record"><?php echo $row['prod_name'];?></td>
 						<td><?php echo number_format($row['price'],2);?></td>
 						<td style="text-align:right"><?php echo number_format($total,2);?></td>
               
@@ -122,6 +122,7 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
     //     $due=$row['due'];
     //     $date=$row['payment_start'];
 ?>        
+<!--               
               <div class="form-group">
               <label for="date">interest</label>
                 <?php $interest=$grand*.00;?>
@@ -130,7 +131,8 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
                 <input type="text" style="text-align:right" class="form-control" id="date" name="interest" placeholder="Interest" 
                 value="<?php echo $interest;?>" tabindex="5" readonly>
               
-              </div><!-- /.form group -->
+              </div> -->
+              <!-- /.form group -->
 
               <div class="form-group">
               <label for="date">Total</label>
@@ -140,12 +142,18 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
               
               </div><!-- /.form group -->
 
-						  <div class="form-group">
+              <input type="hidden" value="0" name="down">
+              <input type="hidden" value="monthly" name="terms">
+              <input type="hidden" value="1" name="span">
+
+
+						  <!-- <div class="form-group">
 							<label for="date">Downpayment</label>
 								<input type="text" class="form-control" id="down" name="down" tabindex="6" placeholder="Downpayment" value="<?php $down=($grand+$interest)*.2;echo $down;?>" required>
-						  </div><!-- /.form group -->
+						  </div> -->
+              <!-- /.form group -->
 						 
-             <div class="form-group">
+             <!-- <div class="form-group">
               <label for="date">Terms</label>
                 <select class="form-control select2" name="terms" tabindex="1" required>
                     
@@ -154,8 +162,9 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
                     <option>daily</option>
                 </select>
             
-              </div><!-- /.form group -->
-              <div class="form-group">
+              </div> -->
+              <!-- /.form group -->
+              <!-- <div class="form-group">
               <label for="date">Payable for</label>
                 <select class="form-control select2" name="span" tabindex="1" required>
                    
@@ -167,7 +176,7 @@ $query=mysqli_query($con,"select * from term where sales_id='$sid'")or die(mysql
                     <option value="6">6 months</option>
                 </select>
             
-              </div>
+              </div> -->
               
               
 					</div>

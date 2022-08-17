@@ -8,6 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/login.css">
+    
     
     <!-- Font Awesome -->
     <!-- Theme style -->
@@ -21,17 +23,31 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        
     <![endif]-->
+    <style>
+      .login-page {
+      background-image: url('media/1c3b9b8a4100d6b38a201e0b224b3544.jpg'); 
+      
+    
+    }
+    .img-logo{
+      width: 200px;
+    }
+    .login-box-body{
+      border-radius: 20px;
+    }
+      </style>
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-  <body class="hold-transition login-page">
-   
+  <body class="hold-transition login-page" >
+     
     <div class="login-box">
       <div class="login-logo">
-        <b>Sales and Inventory with Credit Management System</b>
+        <img src="media/merokhatalogoo.png" alt="" class="img-logo">
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Keep your credit records</p>
         <form action="login.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Username" name="username" required>
@@ -59,6 +75,7 @@
             </div><!-- /.col -->
 			<div class="col-xs-6 pull-right">
               <button type="submit" class="btn btn-primary btn-block btn-flat" name="login" default>Sign In</button>
+              
             </div><!-- /.col -->
           </div>
         </form>
